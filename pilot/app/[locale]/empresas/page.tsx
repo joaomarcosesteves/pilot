@@ -1,10 +1,7 @@
 import { Metadata } from "next"
 
-import { columns, Payment } from "../components/table/colunms"
-import { DataTable } from "../components/table/data-table"
-
-import Bars from "../components/bar"
-
+import { columns, Payment } from "@/app/components/table/colunms"
+import { DataTable } from "@/app/components/table/data-table"
 import {
   Dialog,
   DialogClose,

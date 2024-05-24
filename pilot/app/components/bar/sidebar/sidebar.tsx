@@ -13,6 +13,7 @@ import {
 
 import { CgMenuLeft } from "react-icons/cg";
 import { VscChromeClose } from "react-icons/vsc";
+import Image from "next/image";
 
 type Props = {
   collapsed: boolean;
@@ -31,7 +32,7 @@ const SidebarComp = ({
 }: Props) => {
   return (
     <div className={classNames({
-      "bg-secondary text-card-foreground z-20 rounded-r-3xl shadow": true,
+      "bg-secondary text-card-foreground z-20 rounded-r-3xl shadow min-h-screen": true,
       "transition-all duration-300 ease-in-out": true,
       "fixed md:static md:translate-x-0": true,
       "w-[260px]": !collapsed,
@@ -49,7 +50,7 @@ const SidebarComp = ({
             "py-4 justify-center": collapsed,
           })}
         >
-          {!collapsed && <img src="https://app.jimibrasil.com.br/assets/img/logo_jimi.png" alt="logo" width={120} className="m-4" />}
+          {!collapsed && <Image src="https://app.jimibrasil.com.br/assets/img/logo_jimi.png" alt="logo" width={120} className="m-4" />}
 
           <button
             className={classNames({

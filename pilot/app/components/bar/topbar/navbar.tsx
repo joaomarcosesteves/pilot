@@ -13,11 +13,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
-type Props = {
-  onMenuButtonClick(): void;
-};
 
-const Navbar = (props: Props) => {
+
+const Navbar = () => {
   return (
     <nav
       className={classNames({
@@ -26,9 +24,9 @@ const Navbar = (props: Props) => {
         "w-full sticky z-10 px-4 h-[73px] top-0 ": true, //positioning & styling
       })}
     >
-      <button className="md:hidden" onClick={props.onMenuButtonClick}>
+      {/* <button className="md:hidden" onClick={props.onMenuButtonClick}>
         <CgMenuLeft size={20} />
-      </button>
+      </button> */}
       <div className="flex h-16 items-center px-4 gap-4">
         {/* <TeamSwitcher className="hidden md:flex" /> */}
         <div className="hidden lg:flex gap-4">

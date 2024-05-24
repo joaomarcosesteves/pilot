@@ -1,16 +1,6 @@
 
 import React from 'react';
 import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -1037,10 +1027,9 @@ export default async function Customers() {
   const data = await getData()
   return (
     <div className="flex w-full">
-        <Bars />
 
-        <div className="flex-col flex w-full mt-20">
-          <div className="space-y-4 p-8 pt-6">
+        <div className="flex-col flex w-full">
+          <div className="space-y-4 p-4 sm:p-8 pt-6">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6 h-min">
                 <Card className=' border-t-green-400 border-t-2 bg-secondary h-min'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -1078,7 +1067,6 @@ export default async function Customers() {
                     </div>
                   </CardContent>
                 </Card>
-                
                 
                 <Card className=' border-t-red-400 border-t-2 bg-secondary h-min'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -1145,9 +1133,6 @@ export default async function Customers() {
                   </CardContent>
                 </Card>
 
-
-
-
                 <Card className=' border-t-fuchsia-400 border-t-2 bg-secondary h-min'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground">
@@ -1175,9 +1160,6 @@ export default async function Customers() {
                     </div>
                   </CardContent>
                 </Card>
-
-
-
 
                 <Card className=' border-t-yellow-400 border-t-2 bg-secondary h-min'>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

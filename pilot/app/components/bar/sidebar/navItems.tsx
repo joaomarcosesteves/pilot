@@ -16,7 +16,7 @@ import { ImDatabase } from "react-icons/im";
 import { AiFillDatabase } from "react-icons/ai";
 import { FaCodeMerge } from "react-icons/fa6";
 import { MdNotificationsActive } from "react-icons/md";
-import { FaFlag } from "react-icons/fa";
+import { FaFlag, FaUserAlt } from "react-icons/fa";
 import { TbAlertOctagonFilled } from "react-icons/tb";
 
 
@@ -41,6 +41,11 @@ export const defaultNavItems: NavItem[] = [
     label: "Equipamentos",
     href: "/pt/equipamentos",
     icon: <TbBuildingBroadcastTowerFilled  size={18} />,
+  },
+  {
+    label: "Usuários",
+    href: "/pt/users",
+    icon: <FaUserAlt size={18} />,
   },
   {
     label: "Requisições",

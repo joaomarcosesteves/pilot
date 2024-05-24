@@ -1,5 +1,6 @@
 "use client"
 import * as React from "react"
+import { Suspense } from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -49,7 +50,10 @@ export function DataTable<TData, TValue>({
     })
 
     return (
-        <div>
+        <div className="overflow-auto">
+             <Suspense fallback={<div>Loading...</div>}>
+
+             
             <div className="flex items-center py-4">
                 <Input
                 placeholder="Filtrar Email..."
@@ -142,6 +146,7 @@ export function DataTable<TData, TValue>({
                     Next
                 </Button>
             </div>
+            </Suspense>
         </div>
     )
 }

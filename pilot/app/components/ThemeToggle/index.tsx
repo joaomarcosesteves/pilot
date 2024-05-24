@@ -17,15 +17,26 @@ import { Switch } from "@/components/ui/switch"
 
 export function ModeToggle() {
   const { setTheme, themes, theme } = useTheme()
-  const [checked, setChecked] = useState(false)
-
-  useEffect(() => {
-    console.log('theme', theme)
-  }, [theme])
+  const [mode, setMode] = useState(false)
+  const [colors, setColors] = useState(
+    themes.filter(tema => !tema.includes('dark'))
+  )
 
   const handleCheck = () => {
-    //setChecked(!checked);
+    const dark = theme?.includes('dark')
+   
+    setMode(!mode);
   };
+
+  // useEffect(() => {
+  //   console.log(mode)
+
+  //   if(mode){
+  //     setTheme(theme + 'dark')
+  //   }else{
+  //     setTheme(theme)
+  //   }
+  // }, [mode])
 
 
   const theme_background = {
@@ -41,13 +52,11 @@ export function ModeToggle() {
 
 
   const sendTheme = (tema:string) => {
-        setTheme('')
-        const novotema = String(tema)
-        const str = novotema.concat('dark')
-        const newtheme = str
-        console.log(novotema)
-      
-        setTheme(tema)
+    if(mode){
+      setTheme(tema + 'dark')
+    }else{
+      setTheme(tema)
+    }
   }
 
   return (
@@ -62,25 +71,28 @@ export function ModeToggle() {
       <DropdownMenuContent align="end">
       
       <div className="flex flex-col items-center space-x-2 my-4 gap-3">
-        <Label htmlFor="theme-mode" checked={checked} onChange={() => handleCheck()} >Dark Mode</Label>
-        <Switch id="theme-mode" />
+        <Switch
+          checked={mode}
+          onCheckedChange={() => handleCheck()}
+        />
       </div>
 
-        {themes.map(theme => {
-          const color = theme.split('-', 2)
-          const dark = color.length > 1 
-          const hx = theme_background[theme]
+    
 
-          return (
-            <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
-              <div 
-                className={`w-6 h-6 rounded-full mr-4 ${dark ? `bg-gradient-to-r from-black to-${color[1]}-600` : `${hx}` } `} 
-                //className='w-6 h-6 rounded-full bg-gradient-to-r from-black to-[blue] mr-4' 
-              />
-              {theme}
-            </DropdownMenuItem>
-          )  
-        })}
+
+              {colors.map(th => {
+                const hx = theme_background[th]
+                return(
+                  <DropdownMenuItem key={th} onClick={() => sendTheme(th)}>
+                    <div 
+                      className={`w-6 h-6 rounded-full mr-4 ${hx} `}  
+                    />
+                    {th}
+                  </DropdownMenuItem>
+                )
+              })}
+
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

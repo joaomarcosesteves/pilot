@@ -6,6 +6,7 @@ import TopBar from "../components/bar/topbar";
 import { notFound } from "next/navigation";
 import { ThemeProvider } from "./contexts/theme-provider";
 import "./globals.css";
+import Navbar from "../components/bar/topbar/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,11 +26,15 @@ const THEMES = [
   'Blue',
   'Bluedark',
   'Green', 
+  'Greendark', 
   'Yellow',
+  'Yellowdark',
   'Orange',
+  'Orangedark',
   'Violet',
+  'Violetdark',
   'Rose',
-  'joao',
+  'Rosedark',
 ]
 
 export default function RootLayout({
@@ -54,8 +59,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
          >
-          {/* <TopBar /> */}
-          {children}
+            <div
+              className="flex"
+            >
+              <Bars />
+              <div className=" top-0 w-full flex flex-col ">
+                  <Navbar />
+                  {children}
+              </div>
+            </div>
         </ThemeProvider>
       </body>
     </html>
